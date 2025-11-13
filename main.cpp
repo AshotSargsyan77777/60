@@ -1,5 +1,5 @@
 
-#include "class.h"
+#include "car.h"
 #include <iostream>
 int main(){
     Mercedes mercedes("Mercedes","Black",4.4, 193,"C 300",2010,"automatic","AWD");

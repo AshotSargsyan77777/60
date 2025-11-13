@@ -1,6 +1,26 @@
-#include "class.h"
+#include "car.h"
 #include <iostream>
 
+
+
+Car::Car(std::string name, std::string color) :
+m_name(name),
+m_color(color) {}
+void Car::printInfo() const {
+    std::cout << "name" << "-" << m_name << std::endl;
+    std::cout << "color" << "-" << m_color << std::endl;
+}
+//Car::~Car() {}
+
+
+Engine::Engine(double power, int HP) :
+m_power(power),
+m_HP(HP) {}
+void Engine::printInfo() const {
+    std::cout << "power" << "-" << m_power << std::endl;
+    std::cout << "HP" << "-" << m_HP << std::endl;
+}
+//Engine::~Engine() {}
 
 Mercedes::Mercedes(std::string name, std::string color, double power, int HP,std::string model, int year, std::string transmission, std::string driveType):
     Car(name, color),
