@@ -1,9 +1,11 @@
+
 #include "class.h"
+#include <iostream>
 int main(){
-    Mercedes mercedes("Mercedes",193,"Black","C 300",2010,"automatic","AWD");
-    BMW bmw("BMW",156,"White","X5",2002,"RWD","automatic");
-    Audi audi("Audi",149,"Black","Q7",2020,"RWD","automatic");
-    Engine engine("Petrol",132,"black",4.4,"Petrol" );
+    Mercedes mercedes("Mercedes","Black",4.4, 193,"C 300",2010,"automatic","AWD");
+    BMW bmw("BMW","White",2.8, 146,"X5",2002,"RWD","automatic");
+    Audi audi("Audi","Black",3.2, 156, "Q7",2020,"RWD","automatic");
+  
 
 
     mercedes.printInfo();
@@ -12,8 +14,7 @@ int main(){
     std::cout << "----------------------\n";
     audi.printInfo();
     std::cout << "----------------------\n";
-    engine.printInfo();
-    std::cout << "----------------------\n";
+  
     
 
 
