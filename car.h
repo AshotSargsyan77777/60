@@ -3,29 +3,17 @@
 
 #include <iostream>
 #include <string>
-class Car {
-protected:
-    std::string m_name;
-    std::string m_color;
 
 
-public:
-    Car(std::string name, std::string color);
-    virtual void printInfo() const;
 
-
-    virtual ~Car () {}
-
-
-};
 class Engine{
-protected:
+private:
     double m_power;
     int m_HP;
 
 public:
     Engine(double power, int HP );
-    virtual void printInfo() const;
+     void printInfo() const;
 
 
     virtual ~Engine () {}
@@ -33,7 +21,26 @@ public:
 };
 
 
-class Mercedes : public Car, public Engine {
+class Car {
+protected:
+    std::string m_name;
+    std::string m_color;
+    Engine m_engine;
+
+
+public:
+    Car(std::string name, std::string color,double power, int HP);
+    virtual void printInfo() const;
+
+
+    virtual ~Car () {}
+
+
+};
+
+
+
+class Mercedes : public Car{
 private:
     std::string m_model;
     int m_year;
@@ -45,7 +52,7 @@ public:
     void printInfo() const override;
 };
 
-class BMW : public Car, public Engine {
+class BMW : public Car{
 private:
     std::string m_model;
     int m_year;
@@ -57,7 +64,7 @@ public:
     void printInfo() const override;
 };
 
-class Audi : public Car, public Engine {
+class Audi : public Car {
 private:
     std::string m_model;
     int m_year;

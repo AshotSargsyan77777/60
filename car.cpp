@@ -1,18 +1,6 @@
 #include "car.h"
 #include <iostream>
 
-
-
-Car::Car(std::string name, std::string color) :
-m_name(name),
-m_color(color) {}
-void Car::printInfo() const {
-    std::cout << "name" << "-" << m_name << std::endl;
-    std::cout << "color" << "-" << m_color << std::endl;
-}
-//Car::~Car() {}
-
-
 Engine::Engine(double power, int HP) :
 m_power(power),
 m_HP(HP) {}
@@ -20,11 +8,26 @@ void Engine::printInfo() const {
     std::cout << "power" << "-" << m_power << std::endl;
     std::cout << "HP" << "-" << m_HP << std::endl;
 }
-//Engine::~Engine() {}
+
+
+Car::Car(std::string name, std::string color,double power,int HP) :
+m_name(name),
+m_color(color),
+m_engine (power,HP){}
+void Car::printInfo() const {
+    std::cout << "name" << "-" << m_name << std::endl;
+    std::cout << "color" << "-" << m_color << std::endl;
+    m_engine.printInfo();
+}
+
+
+
+
+
 
 Mercedes::Mercedes(std::string name, std::string color, double power, int HP,std::string model, int year, std::string transmission, std::string driveType):
-    Car(name, color),
-    Engine(power, HP),
+    Car(name, color,power, HP),
+    
     m_model(model),
     m_year(year),
     m_transmission(transmission),
@@ -32,7 +35,6 @@ Mercedes::Mercedes(std::string name, std::string color, double power, int HP,std
 
 void Mercedes::printInfo() const {
     Car::printInfo();
-    Engine::printInfo();
     std::cout << "model" << "-" << m_model << std::endl;
     std::cout << "year" << "-" << m_year << std::endl;
     std::cout << "transmission" << "-" << m_transmission << std::endl;
@@ -41,8 +43,7 @@ void Mercedes::printInfo() const {
 
 
 BMW::BMW(std::string name, std::string color, double power, int HP,std::string model, int year, std::string transmission, std::string driveType):
-    Car(name, color),
-    Engine(power, HP),
+    Car(name, color,power, HP),
     m_model(model), 
     m_year(year),
     m_transmission(transmission),
@@ -50,7 +51,6 @@ BMW::BMW(std::string name, std::string color, double power, int HP,std::string m
 
 void BMW::printInfo() const {
     Car::printInfo();
-    Engine::printInfo();
     std::cout << "model" << "-" << m_model << std::endl;
     std::cout << "year" << "-" << m_year << std::endl;
     std::cout << "transmission" << "-" << m_transmission << std::endl;
@@ -59,8 +59,8 @@ void BMW::printInfo() const {
 
 
 Audi::Audi(std::string name, std::string color, double power, int HP,std::string model, int year, std::string transmission, std::string driveType):
-    Car(name, color),
-    Engine(power, HP),
+    Car(name, color,power, HP),
+    
     m_model(model),
     m_year(year),
     m_transmission(transmission),
@@ -68,7 +68,7 @@ Audi::Audi(std::string name, std::string color, double power, int HP,std::string
 
 void Audi::printInfo() const {
     Car::printInfo();
-    Engine::printInfo();
+
     std::cout << "model" << "-" << m_model << std::endl;
     std::cout << "year" << "-" << m_year << std::endl;
     std::cout << "transmission" << "-" << m_transmission << std::endl;
